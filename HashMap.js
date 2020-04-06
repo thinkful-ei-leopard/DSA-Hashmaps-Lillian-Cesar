@@ -1,7 +1,7 @@
 'use strict';
 
 class HashMap {
-  constuctor(initialCapacity=8){
+  constructor(initialCapacity=8){
     this.length = 0;
     this._hashTable = [];
     this._capacity = initialCapacity;
@@ -32,8 +32,6 @@ class HashMap {
     }
 
     const index = this._findSlot(key);
-    console.log(index);
-    console.log(this._hashTable);
 
     if (!this._hashTable[index]) {
       this.length++;
@@ -59,12 +57,9 @@ class HashMap {
   _findSlot(key){
     const hash = HashMap._hashString(key);
     const start = hash % this._capacity;
-    console.log(this._capacity);
     
     for(let i = start; i < start + this._capacity; i++){
-      console.log('find slot ran');
       const index = i % this._capacity;
-      console.log(index);
       const slot = this._hashTable[index];
       if(slot === undefined || (slot.key === key && !slot.DELETED)) {
         return index;

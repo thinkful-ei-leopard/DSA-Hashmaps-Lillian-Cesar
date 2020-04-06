@@ -18,6 +18,8 @@ function main() {
   lotr.set('LadyOfLight', 'Galadriel');
   lotr.set('HalfElven', 'Arwen');
   lotr.set('Ent', 'Treebeard');
+
+  return lotr;
 }
 
 console.log(main());
