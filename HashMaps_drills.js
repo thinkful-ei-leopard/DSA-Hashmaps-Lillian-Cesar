@@ -35,6 +35,24 @@ console.log(main());
 
 // Drill 3 
 
-HashMapArray = [22,10,88,X,4,28,17,15,,59,31,X];
+//HashMapArray = [22,10,88,X,4,28,17,15,,59,31,X];
 
-SeparateChainingArray =[X,28 -> 19 -> 10, 20, 12,5,X,15 -> 33, X,17];
+//SeparateChainingArray =[X,28 -> 19 -> 10, 20, 12,5,X,15 -> 33, X,17];
+
+
+
+//Drill 4
+
+function RemoveDuplicates(string) {
+  let displayString = '';
+  let Doop = new Map();
+
+  for (let i = 0; i < string.length; i++) {
+    if (!Doop.has(string[i])) {
+      Doop.set(string[i])
+      displayString += string[i]
+    }
+  }
+  return displayString;
+}
+console.log(RemoveDuplicates('google'))
