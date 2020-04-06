@@ -22,7 +22,7 @@ function main() {
   return lotr;
 }
 
-console.log(main());
+//console.log(main());
 
 
 
@@ -55,4 +55,36 @@ function RemoveDuplicates(string) {
   }
   return displayString;
 }
-console.log(RemoveDuplicates('google'))
+//console.log(RemoveDuplicates('google'))
+
+//Drill 6
+const anagrams = new Map();
+function palindrome(str, prefix = '') {
+  
+  if(str.length <= 1){
+    anagrams.set(`${prefix}${str}`, '');
+  } else{
+    for(let i = 0; i < str.length; i++) {
+      let currentLetter = str.substring(i, i + 1);
+      let previousLetters = str.substring(0, i);
+      let afterLetters = str.substring(i + 1);
+      palindrome(previousLetters+afterLetters, prefix+currentLetter);
+    }
+  }
+
+  let answer = false;
+  anagrams.forEach((value, key) => {
+    const splitString = key.split('');
+    const reversedArr = splitString.reverse();
+    const reversedString = reversedArr.join('');
+    if(reversedString === key) {
+      answer = true;
+      return answer;
+    }
+  });
+
+  return answer;
+}
+
+console.log(palindrome('tacocat'));
+
